@@ -77,6 +77,8 @@ input:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var
 .card{background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:13px 14px;
   display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
 .card[hidden]{display:none}
+.thumb{width:calc(100% + 28px);height:130px;object-fit:cover;border-radius:5px 5px 0 0;
+  background:var(--surface-2);margin:-13px -14px 0}
 .ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
 .price{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:20px;font-weight:600;
   letter-spacing:-.02em;line-height:1.1}
@@ -187,6 +189,7 @@ chips('prov',M.provs,'prov');
 chips('ag',M.ags,'ag');
 
 const card=x=>`<article class="card" data-i="${x.id}">
+  ${x.oi?`<img class="thumb" src="${esc(x.oi)}" alt="" loading="lazy">`:''}
   <div class="ctop"><span class="price">${eur(x.p)}</span>
     <span class="badge ${x.on?'on':'off'}">${x.on?'site Brasilità':'não visitado'}</span></div>
   <div class="ctitle">${esc(x.t)}</div>
@@ -218,7 +221,7 @@ function pass(x){
 function apply(){
   const vis=IT.filter(pass);
   const cmp={pa:(a,b)=>a.p-b.p,pd:(a,b)=>b.p-a.p,ad:(a,b)=>(b.m||0)-(a.m||0)}[S.sort];
-  vis.sort(cmp);
+  vis.sort((a,b)=>(b.on-a.on)||cmp(a,b));
   IT.forEach(x=>{NODE[x.id].hidden=true});
   const fr=document.createDocumentFragment();
   vis.forEach(x=>{const n=NODE[x.id]; n.hidden=false; fr.appendChild(n);});

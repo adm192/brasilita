@@ -133,7 +133,8 @@ for i in imm:
     cat.append({'id':i['id'],'t':i['title'],'p':i['price'],'ty':i['typology'],'c':i['cat'],
       'm':m2(i['surface']),'r':(i['rooms'] or '').strip(),'city':i['city'],'prov':i['prov'],
       'ag':SHORT[i['agency']],'on':1 if b else 0,
-      'ou':b['url'] if b else '','ot':b['title'] if b else '','op':b['price'] if b else None})
+      'ou':b['url'] if b else '','ot':b['title'] if b else '','op':b['price'] if b else None,
+      'oi':b['image'] if b else ''})
 cat.sort(key=lambda x:x['p'])
 meta={'n':len(cat),'gerado':'07/09/2026','teto':TETO,
  'provs':sorted({x['prov'] for x in cat}),
