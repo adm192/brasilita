@@ -1,0 +1,294 @@
+<title>Catálogo das Parceiras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F9; --surface:#FFFFFF; --surface-2:#EDF0F5; --rail:#FFFFFF;
+  --ink:#111823; --ink-2:#57647A; --ink-3:#8593A8;
+  --line:#DCE2EB; --line-2:#C3CCDA;
+  --accent:#14458C; --accent-soft:#E4EBF7;
+  --ok:#136B52; --ok-soft:#DEEDE8;
+  --warn:#8A4B06; --warn-soft:#F8EADA;
+  --shadow:0 1px 2px rgba(17,24,35,.05),0 10px 24px -18px rgba(17,24,35,.3);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0C1118; --surface:#151C25; --surface-2:#1C2531; --rail:#111822;
+  --ink:#E9EDF3; --ink-2:#9AA7B8; --ink-3:#71808F;
+  --line:#242E3B; --line-2:#33404F;
+  --accent:#7CA9EE; --accent-soft:#1A2740;
+  --ok:#5CBFA0; --ok-soft:#12302A;
+  --warn:#E0A45C; --warn-soft:#32250F;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -18px rgba(0,0,0,.9);
+}}
+:root[data-theme="dark"]{
+  --ground:#0C1118; --surface:#151C25; --surface-2:#1C2531; --rail:#111822;
+  --ink:#E9EDF3; --ink-2:#9AA7B8; --ink-3:#71808F;
+  --line:#242E3B; --line-2:#33404F;
+  --accent:#7CA9EE; --accent-soft:#1A2740;
+  --ok:#5CBFA0; --ok-soft:#12302A;
+  --warn:#E0A45C; --warn-soft:#32250F;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -18px rgba(0,0,0,.9);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;line-height:1.45}
+a{color:var(--accent)}
+h1,h2{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;margin:0;text-wrap:balance}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.hd{max-width:1400px;margin:0 auto;padding:14px 22px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+h1{font-size:19px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.hsub{font-size:12px;color:var(--ink-3)}
+.hd .grow{flex:1}
+.count{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-2);white-space:nowrap}
+.count b{color:var(--ink);font-weight:600;font-size:15px}
+select{font:inherit;font-size:13px;padding:6px 9px;border:1px solid var(--line-2);border-radius:5px;background:var(--surface);color:var(--ink)}
+select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+
+.warnbar{background:var(--warn-soft);border-bottom:1px solid var(--line)}
+.warnbar div{max-width:1400px;margin:0 auto;padding:9px 22px;font-size:12.5px;color:var(--warn)}
+.warnbar b{font-weight:600}
+
+.shell{max-width:1400px;margin:0 auto;padding:20px 22px 64px;display:grid;grid-template-columns:246px 1fr;gap:26px;align-items:start}
+.rail{background:var(--rail);border:1px solid var(--line);border-radius:7px;padding:15px;position:sticky;top:74px;box-shadow:var(--shadow)}
+.fg{margin-bottom:16px}
+.fg:last-child{margin-bottom:0}
+.flab{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:7px;display:block}
+input[type=search],input[type=number]{font:inherit;font-size:13px;padding:7px 9px;border:1px solid var(--line-2);
+  border-radius:5px;background:var(--surface);color:var(--ink);width:100%}
+input:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+.two{display:flex;gap:7px;align-items:center}
+.two span{color:var(--ink-3);font-size:12px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{border:1px solid var(--line-2);background:var(--surface);font:inherit;font-size:11.5px;padding:4px 9px;
+  border-radius:20px;cursor:pointer;color:var(--ink-2)}
+.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2);cursor:pointer;margin-bottom:7px}
+.tog input{accent-color:var(--accent);width:15px;height:15px;margin:0;cursor:pointer}
+.clear{width:100%;margin-top:4px;border:1px solid var(--line-2);background:var(--surface);font:inherit;font-size:12.5px;
+  padding:7px;border-radius:5px;cursor:pointer;color:var(--ink-2)}
+.clear:hover{background:var(--surface-2);color:var(--ink)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:13px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:13px 14px;
+  display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.card[hidden]{display:none}
+.ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.price{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:20px;font-weight:600;
+  letter-spacing:-.02em;line-height:1.1}
+.badge{font-size:10px;font-weight:600;letter-spacing:.03em;padding:3px 7px;border-radius:3px;white-space:nowrap;text-transform:uppercase}
+.badge.on{background:var(--ok-soft);color:var(--ok)}
+.badge.off{background:var(--surface-2);color:var(--ink-3)}
+.ctitle{font-size:13.5px;font-weight:500;line-height:1.35}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.place{font-size:12.5px;color:var(--ink-2)}
+.place b{font-weight:600;color:var(--ink)}
+.ag{font-size:11px;color:var(--ink-3)}
+.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px;padding-top:9px;border-top:1px solid var(--line)}
+.btn{border:1px solid var(--line-2);background:var(--surface);font:inherit;font-size:11.5px;font-weight:500;
+  padding:5px 9px;border-radius:5px;cursor:pointer;color:var(--ink-2);text-decoration:none;display:inline-block}
+.btn:hover{background:var(--surface-2);color:var(--ink)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.pri:hover{filter:brightness(1.1);color:#fff}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.empty{grid-column:1/-1;padding:44px 20px;text-align:center;color:var(--ink-3);font-size:14px}
+.cp{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:var(--ground);
+  padding:9px 15px;border-radius:6px;font-size:12.5px;z-index:60;box-shadow:var(--shadow);max-width:92vw}
+.cp[hidden]{display:none}
+.cp textarea{width:340px;max-width:80vw;height:84px;font:inherit;font-size:11.5px;margin-top:7px;
+  border-radius:4px;border:0;padding:6px;resize:none}
+.railtoggle{display:none}
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr;gap:14px}
+  .rail{position:static}
+  .railtoggle{display:block;width:100%;border:1px solid var(--line-2);background:var(--surface);font:inherit;
+    font-size:13px;font-weight:500;padding:9px;border-radius:6px;cursor:pointer;color:var(--ink);margin-bottom:4px}
+  .rail.collapsed{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header><div class="hd">
+  <div><h1>Catálogo das Parceiras</h1>
+    <div class="hsub">Imóveis à venda nas 6 imobiliárias parceiras, até € 300.000 · coleta de <span id="ger"></span></div></div>
+  <div class="grow"></div>
+  <div class="count"><b id="n">0</b> <span id="nt">imóveis</span></div>
+  <label class="flab" for="sort" style="margin:0">Ordenar</label>
+  <select id="sort">
+    <option value="pa">Preço — menor primeiro</option>
+    <option value="pd">Preço — maior primeiro</option>
+    <option value="ad">Área — maior primeiro</option>
+  </select>
+</div></header>
+
+<div class="warnbar"><div>
+  <b>Antes de oferecer:</b> o que não está no site Brasilità ainda não foi visitado pela nossa equipe. Dá para apresentar ao cliente, mas sem prometer estado de conservação — as fotos e a descrição são da imobiliária.
+</div></div>
+
+<div class="shell">
+  <div>
+    <button class="railtoggle" id="rt" aria-expanded="false">Filtros</button>
+    <aside class="rail" id="rail">
+      <div class="fg"><label class="flab" for="q">Busca</label>
+        <input type="search" id="q" placeholder="cidade, rua, tipologia…"></div>
+      <div class="fg"><label class="flab">Preço (€)</label>
+        <div class="two"><input type="number" id="pmin" placeholder="mín" min="0" step="1000" aria-label="Preço mínimo">
+        <span>até</span><input type="number" id="pmax" placeholder="300.000" min="0" step="1000" aria-label="Preço máximo"></div></div>
+      <div class="fg"><span class="flab">Província</span><div class="chips" id="prov"></div></div>
+      <div class="fg"><span class="flab">Imobiliária</span><div class="chips" id="ag"></div></div>
+      <div class="fg">
+        <label class="tog"><input type="checkbox" id="onlyon"> Só os do site Brasilità</label>
+        <label class="tog"><input type="checkbox" id="extra"> Incluir garagem, terreno e comercial</label>
+      </div>
+      <button class="clear" id="clr">Limpar filtros</button>
+    </aside>
+  </div>
+  <main><div class="grid" id="grid"></div></main>
+</div>
+
+<div class="cp" id="cp" hidden></div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const IT=D.itens, M=D.meta;
+const eur=n=>'€ '+Number(n).toLocaleString('pt-BR');
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.getElementById('ger').textContent=M.gerado;
+
+const APT=/^(Bilocale|Trilocale|Quadrilocale|Monolocale|Appartamento|Attico|Mansarda)/i;
+const CASA=/^(Terratetto|Villa|Casale|Cascina|Rustico|Casa colonica|Baita|Masseria)/i;
+function fam(x){
+  if(x.c==='Garagem')return 'Garagem';
+  if(x.c==='Terreno')return 'Terreno';
+  if(x.c==='Comercial')return 'Comercial';
+  if(x.c==='Prédio')return 'Prédio';
+  if(APT.test(x.ty))return 'Apartamento';
+  if(CASA.test(x.ty))return 'Casa / Villa';
+  return 'Outros';
+}
+IT.forEach(x=>{
+  x.f=fam(x);
+  x.blob=(x.t+' '+x.city+' '+x.prov+' '+x.ty+' '+x.ag).toLowerCase();
+});
+const EXTRA=new Set(['Garagem','Terreno','Comercial']);
+
+const S={q:'',pmin:null,pmax:null,fam:new Set(),prov:new Set(),ag:new Set(),onlyon:false,extra:false,sort:'pa'};
+
+function chips(host,vals,key){
+  document.getElementById(host).innerHTML=vals.map(v=>
+    `<button type="button" class="chip" data-k="${key}" data-v="${esc(v)}" aria-pressed="false">${esc(v)}</button>`).join('');
+}
+chips('prov',M.provs,'prov');
+chips('ag',M.ags,'ag');
+
+const card=x=>`<article class="card" data-i="${x.id}">
+  <div class="ctop"><span class="price">${eur(x.p)}</span>
+    <span class="badge ${x.on?'on':'off'}">${x.on?'site Brasilità':'não visitado'}</span></div>
+  <div class="ctitle">${esc(x.t)}</div>
+  <div class="meta">${esc(x.ty)}${x.m?' · '+x.m+' m²':''}${x.r?' · '+esc(x.r)+' locali':''}</div>
+  <div class="place"><b>${esc(x.city)}</b> · ${esc(x.prov)}</div>
+  <div class="ag">${esc(x.ag)}</div>
+  <div class="acts">
+    <a class="btn pri" href="https://www.immobiliare.it/annunci/${x.id}/" target="_blank" rel="noopener">Anúncio ↗</a>
+    ${x.on?`<a class="btn" href="${esc(x.ou)}" target="_blank" rel="noopener">Ver no site ↗</a>`:''}
+    <button type="button" class="btn" data-cp="${x.id}">Copiar</button>
+    <button type="button" class="btn" data-sim="${x.id}">Parecidos</button>
+  </div></article>`;
+
+const grid=document.getElementById('grid');
+grid.innerHTML=IT.map(card).join('')+'<p class="empty" id="none" hidden>Nenhum imóvel com esses filtros.<br>Afrouxe o preço ou tire alguma província.<br><span style="font-size:12.5px">O catálogo vai até € 300.000.</span></p>';
+const NODE={}; grid.querySelectorAll('.card').forEach(c=>NODE[c.dataset.i]=c);
+
+function pass(x){
+  if(!S.extra&&EXTRA.has(x.f))return false;
+  if(S.onlyon&&!x.on)return false;
+  if(S.q&&!x.blob.includes(S.q))return false;
+  if(S.pmin!=null&&x.p<S.pmin)return false;
+  if(S.pmax!=null&&x.p>S.pmax)return false;
+  if(S.fam.size&&!S.fam.has(x.f))return false;
+  if(S.prov.size&&!S.prov.has(x.prov))return false;
+  if(S.ag.size&&!S.ag.has(x.ag))return false;
+  return true;
+}
+function apply(){
+  const vis=IT.filter(pass);
+  const cmp={pa:(a,b)=>a.p-b.p,pd:(a,b)=>b.p-a.p,ad:(a,b)=>(b.m||0)-(a.m||0)}[S.sort];
+  vis.sort(cmp);
+  IT.forEach(x=>{NODE[x.id].hidden=true});
+  const fr=document.createDocumentFragment();
+  vis.forEach(x=>{const n=NODE[x.id]; n.hidden=false; fr.appendChild(n);});
+  grid.prepend(fr);
+  document.getElementById('n').textContent=vis.length;
+  document.getElementById('nt').textContent=vis.length===1?'imóvel':'imóveis';
+  document.getElementById('none').hidden=vis.length>0;
+}
+
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.chip');
+  if(c){const k=c.dataset.k,v=c.dataset.v;
+    if(S[k].has(v))S[k].delete(v); else S[k].add(v);
+    c.setAttribute('aria-pressed',S[k].has(v)); apply(); return;}
+  const cp=e.target.closest('[data-cp]');
+  if(cp){copy(IT.find(x=>String(x.id)===cp.dataset.cp)); return;}
+  const sm=e.target.closest('[data-sim]');
+  if(sm){similar(IT.find(x=>String(x.id)===sm.dataset.sim)); return;}
+  if(!e.target.closest('#cp'))document.getElementById('cp').hidden=true;
+});
+document.getElementById('q').addEventListener('input',e=>{S.q=e.target.value.trim().toLowerCase();apply();});
+document.getElementById('pmin').addEventListener('input',e=>{S.pmin=e.target.value===''?null:+e.target.value;apply();});
+document.getElementById('pmax').addEventListener('input',e=>{S.pmax=e.target.value===''?null:+e.target.value;apply();});
+document.getElementById('onlyon').addEventListener('change',e=>{S.onlyon=e.target.checked;apply();});
+document.getElementById('extra').addEventListener('change',e=>{S.extra=e.target.checked;apply();});
+document.getElementById('sort').addEventListener('change',e=>{S.sort=e.target.value;apply();});
+document.getElementById('clr').addEventListener('click',()=>{
+  S.q='';S.pmin=null;S.pmax=null;S.onlyon=false;S.extra=false;
+  ['fam','prov','ag'].forEach(k=>S[k].clear());
+  document.getElementById('q').value='';document.getElementById('pmin').value='';document.getElementById('pmax').value='';
+  document.getElementById('onlyon').checked=false;document.getElementById('extra').checked=false;
+  document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+  apply();window.scrollTo({top:0,behavior:'smooth'});
+});
+document.getElementById('rt').addEventListener('click',e=>{
+  const r=document.getElementById('rail');
+  const opened=r.classList.toggle('collapsed')===false;
+  e.target.setAttribute('aria-expanded',opened);
+});
+/* recolhido por padrao; a regra so vale ate 900px, entao no desktop o rail aparece sempre */
+document.getElementById('rail').classList.add('collapsed');
+
+function similar(x){
+  S.q='';document.getElementById('q').value='';
+  S.pmin=Math.round(x.p*0.72);S.pmax=Math.round(x.p*1.28);
+  document.getElementById('pmin').value=S.pmin;document.getElementById('pmax').value=S.pmax;
+  S.prov.clear();S.prov.add(x.prov);
+  S.fam.clear();if(!EXTRA.has(x.f))S.fam.add(x.f);
+  S.ag.clear();S.onlyon=false;
+  document.getElementById('onlyon').checked=false;
+  document.querySelectorAll('.chip').forEach(c=>
+    c.setAttribute('aria-pressed', (c.dataset.k==='prov'&&c.dataset.v===x.prov)||(c.dataset.k==='fam'&&c.dataset.v===x.f)));
+  apply();window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function txt(x){
+  return `${x.t}\n${eur(x.p)}${x.m?' · '+x.m+' m²':''}${x.r?' · '+x.r+' locali':''}\n${x.city} (${x.prov})\nhttps://www.immobiliare.it/annunci/${x.id}/`;
+}
+function toast(msg,body){
+  const el=document.getElementById('cp');
+  el.innerHTML=esc(msg)+(body?`<textarea readonly>${esc(body)}</textarea>`:'');
+  el.hidden=false;
+  if(body){const t=el.querySelector('textarea');t.focus();t.select();}
+  else setTimeout(()=>{el.hidden=true},1800);
+}
+function copy(x){
+  const s=txt(x);
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(s).then(()=>toast('Copiado — é só colar no WhatsApp.'),()=>toast('Copie daqui:',s));
+  } else toast('Copie daqui:',s);
+}
+apply();
+</script>
